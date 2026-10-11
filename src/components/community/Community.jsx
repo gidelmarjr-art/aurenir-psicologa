@@ -22,7 +22,7 @@ const Icon = {
   ),
 }
 
-export default function Community({ onProducts }) {
+export default function Community() {
   const channels = [
     { key: 'instagram', name: 'Instagram', text: 'Conteúdos curtos sobre saúde emocional.', href: site.social.instagram },
     { key: 'telegram', name: 'Telegram', text: 'Entre no grupo e receba as novidades.', href: site.social.telegram },
@@ -33,7 +33,7 @@ export default function Community({ onProducts }) {
     <section id="comunidade" className="community">
       <div className="container">
         <h2 className="section-title">Continue o cuidado fora da sessão</h2>
-        <p className="section-lead">Conteúdos gratuitos nas redes e materiais de apoio para o seu dia a dia.</p>
+        <p className="section-lead">Conteúdos gratuitos nas redes para acompanhar no seu tempo.</p>
 
         <ul className="community__grid">
           {channels.map((c) => (
@@ -47,14 +47,6 @@ export default function Community({ onProducts }) {
             </li>
           ))}
         </ul>
-
-        <div className="community__products">
-          <div>
-            <h3>Materiais indicados</h3>
-            <p>Livros, guias e produtos que a psicóloga recomenda.</p>
-          </div>
-          <button className="btn btn--primary" onClick={onProducts}>Ver materiais</button>
-        </div>
       </div>
     </section>
   )

@@ -6,10 +6,11 @@ const links = [
   { href: '#quem-somos', label: 'Quem somos' },
   { href: '#temas', label: 'Temas' },
   { href: '#atendimento', label: 'Atendimento' },
+  { href: '#materiais', label: 'Materiais' },
   { href: '#comunidade', label: 'Comunidade' },
 ]
 
-export default function Header({ onSchedule, onProducts }) {
+export default function Header({ onSchedule }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -52,14 +53,6 @@ export default function Header({ onSchedule, onProducts }) {
                 </a>
               </li>
             ))}
-            <li>
-              <button
-                className="header__link header__link--button"
-                onClick={() => { closeMenu(); onProducts() }}
-              >
-                Materiais
-              </button>
-            </li>
           </ul>
           <button
             className="btn btn--primary header__cta"

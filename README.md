@@ -11,7 +11,7 @@ npm run build    # gera a pasta dist/ para publicar (Vercel, Netlify...)
 
 ## O que editar
 Quase tudo fica em `src/data/siteData.js`: nome, CRP, WhatsApp, textos do "Quem somos",
-conteúdo dos temas (estresse, ansiedade, depressão, traumas) e os produtos com link de compra.
+conteúdo dos temas (estresse, ansiedade, depressão, traumas) e os produtos (título, capa em public/materiais/ e link de compra).
 Procure por `TROCAR`.
 
 ## Estrutura
@@ -32,5 +32,5 @@ src/
     ├── modal/             Modal.jsx  Modal.css      (base das janelas)
     ├── schedule-modal/    ScheduleModal.jsx  ScheduleModal.css
     ├── info-modal/        InfoModal.jsx  InfoModal.css
-    └── products-modal/    ProductsModal.jsx  ProductsModal.css
+    ├── products/          Products.jsx  Products.css   (Materiais indicados)
 ```

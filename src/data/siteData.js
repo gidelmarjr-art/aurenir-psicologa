@@ -4,7 +4,7 @@
 // =====================================================================
 
 export const site = {
-  name: 'Nome da Psicóloga', // TROCAR
+  name: 'Aurenir Terto',
   crp: 'CRP 00/00000', // TROCAR
   // Número com DDI+DDD, só dígitos. Ex.: '5561999999999'.
   // Se ficar vazio, o formulário mostra a mensagem pronta para copiar e enviar pelo Instagram.
@@ -93,10 +93,25 @@ export const topics = [
   },
 ]
 
-// Janela de produtos: cada item tem um link de compra.
-// Deixe link: '' enquanto o link não existir (o botão aparece como "Link em breve").
+// Materiais indicados (seção "Materiais"). Para adicionar outro, copie um bloco e
+// coloque a capa em public/materiais/.
 export const products = [
-  { id: 'p1', title: 'Nome do produto 1', description: 'Descreva em uma frase para que serve este material.', link: '' }, // TROCAR
-  { id: 'p2', title: 'Nome do produto 2', description: 'Descreva em uma frase para que serve este material.', link: '' }, // TROCAR
-  { id: 'p3', title: 'Nome do produto 3', description: 'Descreva em uma frase para que serve este material.', link: '' }, // TROCAR
+  {
+    id: 'mentalidade-de-vencedor',
+    title: 'Mentalidade de Vencedor',
+    image: '/materiais/mentalidade-de-vencedor.png',
+    link: 'https://chk.eduzz.com/39YBPNQ3WO',
+  },
+  {
+    id: 'segredos-da-aprendizagem-pnl',
+    title: 'E-book: Os Segredos da Aprendizagem Revelados pela PNL Aplicados à Educação',
+    image: '/materiais/segredos-da-aprendizagem-pnl.png',
+    link: 'https://sun.eduzz.com/1743870',
+  },
+  {
+    id: 'oficina-de-acolhida',
+    title: 'Oficina de Acolhida para Estudantes',
+    image: '/materiais/oficina-de-acolhida.png',
+    link: 'https://chk.eduzz.com/1755020',
+  },
 ]
