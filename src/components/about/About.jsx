@@ -2,21 +2,16 @@ import { site } from '../../data/siteData'
 import Reveal from '../reveal/Reveal'
 import './About.css'
 
-// Iniciais para o retrato provisório. Para usar uma foto, troque o <div className="about__photo"> por
-// <img className="about__photo" src="/foto-psicologa.jpg" alt="Retrato da psicóloga" /> e coloque a imagem na pasta public/.
-const initials = site.name
-  .split(' ')
-  .filter(Boolean)
-  .slice(0, 2)
-  .map((w) => w[0])
-  .join('')
-
 export default function About() {
   return (
     <section id="quem-somos" className="about">
       <div className="container about__inner">
-        <Reveal className="about__photo" role="img" aria-label="Espaço reservado para a foto da psicóloga">
-          <span>{initials}</span>
+        <Reveal>
+          <img 
+            className="about__photo" 
+            src="/materiais/person.png" 
+            alt="Retrato da psicóloga" 
+          />
         </Reveal>
 
         <Reveal className="about__content" delay={150}>
