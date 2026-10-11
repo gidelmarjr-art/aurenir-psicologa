@@ -3,7 +3,7 @@ import { site } from '../../data/siteData'
 import './Header.css'
 
 const links = [
-  { href: '#quem-somos', label: 'Sobre Mim' },
+  { href: '#sobre-mim', label: 'Sobre Mim' },
   { href: '#temas', label: 'Temas' },
   { href: '#atendimento', label: 'Atendimento' },
   { href: '#materiais', label: 'Materiais' },

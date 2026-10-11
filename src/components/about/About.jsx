@@ -4,7 +4,7 @@ import './About.css'
 
 export default function About() {
   return (
-    <section id="quem-somos" className="about">
+    <section id="sobre-mim" className="about">
       <div className="container about__inner">
         <Reveal>
           <div className="about__photo-wrapper">
