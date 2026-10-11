@@ -1,0 +1,32 @@
+.schedule__form { display: grid; gap: 1.1rem; }
+.schedule__intro { color: var(--muted); }
+
+.schedule__field { display: grid; gap: .35rem; }
+.schedule__field label { font-weight: 600; font-size: .95rem; }
+.schedule__field input,
+.schedule__field select,
+.schedule__field textarea {
+  width: 100%; min-height: 48px; padding: .65rem .9rem;
+  font: inherit; color: var(--ink);
+  background: #fff; border: 1px solid #9fb3aa; border-radius: var(--radius-s);
+}
+.schedule__field textarea { resize: vertical; }
+.schedule__field input[aria-invalid='true'] { border-color: var(--danger-ink); }
+.schedule__error { color: var(--danger-ink); font-size: .9rem; }
+
+.schedule__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.schedule__submit { width: 100%; margin-top: .25rem; }
+
+.schedule__done { display: grid; gap: 1rem; }
+.schedule__preview {
+  margin: 0; padding: 1rem; white-space: pre-wrap; word-break: break-word;
+  font: inherit; font-size: .98rem;
+  background: var(--sage-soft); border-radius: var(--radius-s);
+}
+.schedule__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+@media (max-width: 600px) {
+  .schedule__row { grid-template-columns: 1fr; }
+  .schedule__actions .btn { width: 100%; }
+}

@@ -1,0 +1,5 @@
+.footer { background: var(--teal-dark); color: #e9f1ec; padding: 2.5rem 0; font-size: .95rem; }
+.footer__inner { display: grid; gap: .75rem; }
+.footer__urgent { color: #fff; }
+.footer__note { color: var(--sage); max-width: 70ch; }
+.footer__copy { color: var(--sage); margin-top: .5rem; }

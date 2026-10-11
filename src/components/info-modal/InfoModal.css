@@ -1,0 +1,26 @@
+.info__tabs { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .5rem; margin-bottom: 1rem; }
+.info__tab {
+  flex: none; min-height: 44px; padding: .5rem 1.1rem;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--radius-pill);
+  font-weight: 500;
+}
+.info__tab:hover { background: var(--sage-soft); }
+.info__tab--active, .info__tab--active:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.info__panel { display: grid; gap: .75rem; }
+.info__heading { font-size: 1.6rem; color: var(--teal-dark); }
+.info__sub { margin: .75rem 0 0; font-weight: 700; font-size: 1rem; color: var(--teal-dark); }
+
+.info__signs { display: grid; gap: .4rem; }
+.info__signs li { position: relative; padding-left: 1.25rem; }
+.info__signs li::before {
+  content: ''; position: absolute; left: 0; top: .6em; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--sage); border: 1px solid var(--teal);
+}
+
+.info__alert { padding: 1rem 1.25rem; background: var(--danger-bg); color: var(--danger-ink); border-radius: var(--radius-s); font-weight: 500; }
+
+.info__cta { margin-top: 1rem; justify-self: start; }
+.info__disclaimer { font-size: .88rem; color: var(--muted); }
+
+@media (max-width: 600px) { .info__cta { width: 100%; justify-self: stretch; } }
