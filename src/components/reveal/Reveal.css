@@ -1,0 +1,23 @@
+:root { --ease-out: cubic-bezier(.2, .7, .2, 1); }
+
+/* Bloco único */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Grupo: cada filho entra com um pequeno intervalo */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.reveal-group.is-visible > * { opacity: 1; transform: none; }
+.reveal-group.is-visible > :nth-child(1) { transition-delay: calc(var(--delay, 0ms) + 0ms); }
+.reveal-group.is-visible > :nth-child(2) { transition-delay: calc(var(--delay, 0ms) + 110ms); }
+.reveal-group.is-visible > :nth-child(3) { transition-delay: calc(var(--delay, 0ms) + 220ms); }
+.reveal-group.is-visible > :nth-child(4) { transition-delay: calc(var(--delay, 0ms) + 330ms); }
+.reveal-group.is-visible > :nth-child(n+5) { transition-delay: calc(var(--delay, 0ms) + 440ms); }

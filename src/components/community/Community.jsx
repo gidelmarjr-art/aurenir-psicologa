@@ -1,4 +1,5 @@
 import { site } from '../../data/siteData'
+import Reveal from '../reveal/Reveal'
 import './Community.css'
 
 const Icon = {
@@ -32,10 +33,12 @@ export default function Community() {
   return (
     <section id="comunidade" className="community">
       <div className="container">
+        <Reveal>
         <h2 className="section-title">Continue o cuidado fora da sessão</h2>
         <p className="section-lead">Conteúdos gratuitos nas redes para acompanhar no seu tempo.</p>
+        </Reveal>
 
-        <ul className="community__grid">
+        <Reveal as="ul" stagger className="community__grid">
           {channels.map((c) => (
             <li key={c.key}>
               <a className="community__link" href={c.href} target="_blank" rel="noopener noreferrer">
@@ -46,7 +49,7 @@ export default function Community() {
               </a>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   )

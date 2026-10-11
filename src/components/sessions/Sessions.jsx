@@ -1,4 +1,5 @@
 import { site } from '../../data/siteData'
+import Reveal from '../reveal/Reveal'
 import './Sessions.css'
 
 const steps = [
@@ -12,8 +13,8 @@ export default function Sessions({ onSchedule }) {
     <section id="atendimento" className="sessions">
       <div className="container sessions__inner">
         <div>
-          <h2 className="section-title">Como funciona o atendimento online</h2>
-          <ol className="sessions__steps">
+          <Reveal><h2 className="section-title">Como funciona o atendimento online</h2></Reveal>
+          <Reveal as="ol" stagger className="sessions__steps">
             {steps.map((s, i) => (
               <li key={s.title} className="sessions__step">
                 <span className="sessions__num" aria-hidden="true">{i + 1}</span>
@@ -23,10 +24,10 @@ export default function Sessions({ onSchedule }) {
                 </div>
               </li>
             ))}
-          </ol>
+          </Reveal>
         </div>
 
-        <aside className="sessions__panel" aria-label="Informações da sessão">
+        <Reveal as="aside" delay={200} className="sessions__panel" aria-label="Informações da sessão">
           <h3>Sua sessão</h3>
           <dl>
             <div><dt>Formato</dt><dd>{site.session.format}</dd></div>
@@ -34,7 +35,7 @@ export default function Sessions({ onSchedule }) {
             <div><dt>Sigilo</dt><dd>Garantido pelo Código de Ética da Psicologia</dd></div>
           </dl>
           <button className="btn sessions__cta" onClick={onSchedule}>Agendar sessão online</button>
-        </aside>
+        </Reveal>
       </div>
     </section>
   )

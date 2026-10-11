@@ -1,4 +1,5 @@
 import { products } from '../../data/siteData'
+import Reveal from '../reveal/Reveal'
 import './Products.css'
 
 export default function Products() {
@@ -6,14 +7,14 @@ export default function Products() {
     <section id="materiais" className="products">
       <div className="container">
         <div className="products__panel">
-          <header className="products__head">
+          <Reveal as="header" className="products__head">
             <h2 className="products__title">Materiais indicados</h2>
             <p className="products__lead">
               Conteúdos criados para quem quer aprender e cuidar da mente também fora da sessão.
             </p>
-          </header>
+          </Reveal>
 
-          <ul className="products__list">
+          <Reveal as="ul" stagger delay={150} className="products__list">
             {products.map((p) => (
               <li key={p.id} className="products__item">
                 <a
@@ -34,7 +35,7 @@ export default function Products() {
                 </a>
               </li>
             ))}
-          </ul>
+          </Reveal>
         </div>
       </div>
     </section>

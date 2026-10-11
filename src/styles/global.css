@@ -56,8 +56,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
   border-radius: var(--radius-pill);
   border: 2px solid transparent;
   font-weight: 600; font-size: 1rem; text-decoration: none;
-  transition: background-color .2s, color .2s, border-color .2s;
+  transition: background-color .2s, color .2s, border-color .2s, transform .15s;
 }
+.btn:active { transform: scale(.97); }
 .btn--primary { background: var(--teal); color: #fff; }
 .btn--primary:hover { background: var(--teal-dark); }
 .btn--ghost { background: transparent; color: var(--teal); border-color: var(--teal); }

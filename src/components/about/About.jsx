@@ -1,4 +1,5 @@
 import { site } from '../../data/siteData'
+import Reveal from '../reveal/Reveal'
 import './About.css'
 
 // Iniciais para o retrato provisório. Para usar uma foto, troque o <div className="about__photo"> por
@@ -14,11 +15,11 @@ export default function About() {
   return (
     <section id="quem-somos" className="about">
       <div className="container about__inner">
-        <div className="about__photo" role="img" aria-label="Espaço reservado para a foto da psicóloga">
+        <Reveal className="about__photo" role="img" aria-label="Espaço reservado para a foto da psicóloga">
           <span>{initials}</span>
-        </div>
+        </Reveal>
 
-        <div className="about__content">
+        <Reveal className="about__content" delay={150}>
           <h2 className="section-title">Quem somos</h2>
           <div className="about__text">
             {site.about.paragraphs.map((p) => (
@@ -34,7 +35,7 @@ export default function About() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
