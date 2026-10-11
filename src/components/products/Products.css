@@ -1,4 +1,4 @@
-.products { padding: clamp(3rem, 8vw, 6rem) 0; background: var(--lilac); }
+.products { padding: clamp(3rem, 8vw, 6rem) 0; background: var(--sage-soft); }
 
 /* Painel claro, como na referência: título à esquerda, texto à direita, cards lado a lado */
 .products__panel { background: #fff; border-radius: var(--radius-m); padding: clamp(1.5rem, 5vw, 3.5rem); }
