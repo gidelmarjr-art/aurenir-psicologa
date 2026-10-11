@@ -3,6 +3,7 @@
 .community__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
 
 .community__link {
+  position: relative;
   display: grid; gap: .5rem; height: 100%;
   padding: 1.75rem; text-decoration: none;
   background: var(--sage-soft); border: 1px solid var(--line); border-radius: var(--radius-m);

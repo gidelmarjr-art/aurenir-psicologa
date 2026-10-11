@@ -1,11 +1,11 @@
 .modal__overlay {
   position: fixed; inset: 0; z-index: 100;
-  display: grid; place-items: center; padding: 1rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: 1rem;
   background: rgba(18, 48, 46, .55);
 }
 
 .modal__dialog {
-  width: min(640px, 100%); max-height: min(90vh, 880px);
+  width: min(640px, 100%); min-width: 0; max-height: min(90vh, 880px);
   display: flex; flex-direction: column;
   background: var(--paper); border-radius: var(--radius-m);
   box-shadow: 0 24px 60px rgba(18, 48, 46, .3);
