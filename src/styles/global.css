@@ -1,13 +1,14 @@
 :root {
-  --ink: #12302e;
-  --teal: #1e5551;
-  --teal-dark: #143e3b;
-  --sage: #c5d8cb;
-  --sage-soft: #e8f0ea;
-  --lilac: #e3def2;
-  --paper: #f7f9f6;
-  --line: #d3ded6;
-  --muted: #4a6360;
+  /* Paleta da marca: bege + marrom, com um azul bem sutil para dar vida aos neutros */
+  --ink: #3b2a1b;          /* marrom quase preto: texto */
+  --brown: #74502e;        /* marrom da marca: botões e destaques */
+  --brown-dark: #5a3d22;   /* marrom escuro: hover, rodapé, painéis */
+  --beige: #ece6e6;        /* bege rosado: seções alternadas */
+  --paper: #f7f3f0;        /* bege bem claro: fundo da página */
+  --sky: #a3c4d7;          /* azul céu sutil: detalhes */
+  --sky-soft: #dde9f0;     /* azul quase branco: fundos suaves */
+  --line: #d9cec7;
+  --muted: #6a5949;
   --danger-bg: #fdf0ee;
   --danger-ink: #7a2a1f;
 
@@ -41,7 +42,7 @@ a { color: inherit; }
 img, svg { max-width: 100%; display: block; }
 button { font: inherit; color: inherit; cursor: pointer; }
 
-:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--brown); outline-offset: 3px; border-radius: 4px; }
 
 .container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
 
@@ -59,10 +60,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
   transition: background-color .2s, color .2s, border-color .2s, transform .15s;
 }
 .btn:active { transform: scale(.97); }
-.btn--primary { background: var(--teal); color: #fff; }
-.btn--primary:hover { background: var(--teal-dark); }
-.btn--ghost { background: transparent; color: var(--teal); border-color: var(--teal); }
-.btn--ghost:hover { background: var(--sage-soft); }
+.btn--primary { background: var(--brown); color: #fff; }
+.btn--primary:hover { background: var(--brown-dark); }
+.btn--ghost { background: transparent; color: var(--brown); border-color: var(--brown); }
+.btn--ghost:hover { background: var(--beige); }
 .btn[disabled], .btn[aria-disabled='true'] { opacity: .55; cursor: not-allowed; }
 
 .visually-hidden {

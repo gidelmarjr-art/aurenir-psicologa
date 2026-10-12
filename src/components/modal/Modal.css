@@ -1,14 +1,14 @@
 .modal__overlay {
   position: fixed; inset: 0; z-index: 100;
   display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: 1rem;
-  background: rgba(18, 48, 46, .55);
+  background: rgba(59, 42, 27, .55);
 }
 
 .modal__dialog {
   width: min(640px, 100%); min-width: 0; max-height: min(90vh, 880px);
   display: flex; flex-direction: column;
   background: var(--paper); border-radius: var(--radius-m);
-  box-shadow: 0 24px 60px rgba(18, 48, 46, .3);
+  box-shadow: 0 24px 60px rgba(59, 42, 27, .3);
   animation: modal-in .22s ease-out;
 }
 .modal__dialog:focus { outline: none; }
@@ -17,14 +17,14 @@
   display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
   padding: 1.5rem 1.5rem 1rem;
 }
-.modal__title { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--teal-dark); }
+.modal__title { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--brown-dark); }
 
 .modal__close {
   flex: none; width: 44px; height: 44px; display: grid; place-items: center;
   border: 1px solid var(--line); border-radius: 50%; background: transparent;
   font-size: 1.6rem; line-height: 1;
 }
-.modal__close:hover { background: var(--sage-soft); }
+.modal__close:hover { background: var(--beige); }
 
 .modal__body { padding: 0 1.5rem 1.75rem; overflow-y: auto; }
 

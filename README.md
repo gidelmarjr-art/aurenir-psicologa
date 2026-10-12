@@ -10,7 +10,7 @@ npm run build    # gera a pasta dist/ para publicar (Vercel, Netlify...)
 ```
 
 ## O que editar
-Quase tudo fica em `src/data/siteData.js`: nome, CRP, WhatsApp, textos do "Quem somos",
+Quase tudo fica em `src/data/siteData.js`: nome, CRP, WhatsApp, textos do "Sobre mim",
 conteúdo dos temas (estresse, ansiedade, depressão, traumas) e os produtos (título, capa em public/materiais/ e link de compra).
 Procure por `TROCAR`.
 
@@ -24,7 +24,7 @@ src/
 └── components/
     ├── header/            Header.jsx  Header.css
     ├── hero/              Hero.jsx  Hero.css
-    ├── about/             About.jsx  About.css      (Quem somos)
+    ├── about/             About.jsx  About.css      (Sobre mim)
     ├── topics/            Topics.jsx  Topics.css
     ├── sessions/          Sessions.jsx  Sessions.css
     ├── community/         Community.jsx  Community.css

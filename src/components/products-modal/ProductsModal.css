@@ -4,7 +4,7 @@
   padding: 1.25rem 0; border-top: 1px solid var(--line);
 }
 .products__item:first-child { border-top: 0; padding-top: 0; }
-.products__title { font-size: 1.25rem; color: var(--teal-dark); }
+.products__title { font-size: 1.25rem; color: var(--brown-dark); }
 .products__desc { color: var(--muted); margin-top: .2rem; }
 .products__btn { flex: none; min-height: 44px; }
 

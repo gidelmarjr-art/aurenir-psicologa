@@ -14,8 +14,8 @@ export default function Hero({ onSchedule }) {
             <button className="btn btn--primary" onClick={onSchedule}>
               Agendar sessão online
             </button>
-            <a className="btn btn--ghost" href="#quem-somos">
-              Quem somos
+            <a className="btn btn--ghost" href="#sobre-mim">
+              Sobre mim
             </a>
           </div>
           <ul className="hero__facts">

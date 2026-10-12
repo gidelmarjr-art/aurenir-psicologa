@@ -1,5 +1,5 @@
 .about {
-  background: var(--sage-soft);
+  background: var(--beige);
   padding: clamp(3rem, 8vw, 6.5rem) 0;
 }
 
@@ -18,7 +18,7 @@
   margin-inline: auto;
   border-radius: 999px 999px var(--radius-m) var(--radius-m); /* Formato de arco */
   overflow: hidden; /* Garante que a imagem dentro obedeça ao formato de arco */
-  background: linear-gradient(160deg, var(--lilac), var(--sage));
+  background: linear-gradient(160deg, var(--sky-soft), var(--sky));
 }
 
 /* A imagem ajustada dentro do arco */
@@ -55,7 +55,7 @@
 
 .about__detail dt {
   font-weight: 600;
-  color: var(--teal-dark);
+  color: var(--brown-dark);
 }
 
 .about__detail dd {
