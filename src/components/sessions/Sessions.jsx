@@ -31,6 +31,7 @@ export default function Sessions({ onSchedule }) {
           <h3>Sua sessão</h3>
           <dl>
             <div><dt>Formato</dt><dd>{site.session.format}</dd></div>
+            <div><dt>Dias de atendimento</dt><dd>{site.availability.text}</dd></div>
             <div><dt>Duração</dt><dd>{site.session.duration}</dd></div>
             <div><dt>Sigilo</dt><dd>Garantido pelo Código de Ética da Psicologia</dd></div>
           </dl>

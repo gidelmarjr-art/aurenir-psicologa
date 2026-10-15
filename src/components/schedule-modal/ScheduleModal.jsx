@@ -90,6 +90,12 @@ export default function ScheduleModal({ initialTopic, onClose }) {
           Não precisa contar o que está sentindo agora. Isso fica para a primeira conversa.
         </p>
 
+        <div className="schedule__availability">
+          <strong>Dias de atendimento</strong>
+          <span>{site.availability.text}</span>
+          {site.availability.note && <small>{site.availability.note}</small>}
+        </div>
+
         <div className="schedule__field">
           <label htmlFor="ag-nome">Seu nome</label>
           <input

@@ -30,3 +30,11 @@
   .schedule__row { grid-template-columns: 1fr; }
   .schedule__actions .btn { width: 100%; }
 }
+
+/* Caixa com os dias e horários de atendimento */
+.schedule__availability {
+  display: grid; gap: .15rem; padding: .9rem 1.1rem;
+  background: var(--sky-soft); border-left: 4px solid var(--brown); border-radius: var(--radius-s);
+}
+.schedule__availability strong { color: var(--brown-dark); font-size: .95rem; }
+.schedule__availability small { color: var(--muted); font-size: .88rem; }

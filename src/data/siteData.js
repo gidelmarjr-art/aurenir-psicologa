@@ -14,6 +14,11 @@ export const site = {
     telegram: 'https://t.me/joinchat/EA0mZb5-O2raSOMP',
     youtube: 'https://www.youtube.com/channel/UCJWXSo8oPNvf7HB3ehUmorg',
   },
+  // DIAS E HORÁRIOS DE ATENDIMENTO: edite só estas duas linhas quando mudar a agenda.
+  availability: {
+    text: 'Segunda a sexta, das 8h às 18h', // TROCAR
+    note: 'O horário exato é combinado com você pelo WhatsApp.',
+  },
   session: {
     duration: '50 minutos', // TROCAR se for diferente
     format: 'Videochamada',

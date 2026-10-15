@@ -25,12 +25,11 @@ src/
     ├── header/            Header.jsx  Header.css
     ├── hero/              Hero.jsx  Hero.css
     ├── about/             About.jsx  About.css      (Sobre mim)
-    ├── topics/            Topics.jsx  Topics.css
+    ├── topics/            Topics.jsx  Topics.css      (FAQ em sanfona)
     ├── sessions/          Sessions.jsx  Sessions.css
     ├── community/         Community.jsx  Community.css
     ├── footer/            Footer.jsx  Footer.css
     ├── modal/             Modal.jsx  Modal.css      (base das janelas)
     ├── schedule-modal/    ScheduleModal.jsx  ScheduleModal.css
-    ├── info-modal/        InfoModal.jsx  InfoModal.css
     ├── products/          Products.jsx  Products.css   (Materiais indicados)
 ```
