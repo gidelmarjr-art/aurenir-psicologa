@@ -1,30 +1,84 @@
-.products { padding: clamp(3rem, 8vw, 6rem) 0; background: var(--beige); }
+.products {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: var(--beige);
+}
 
 /* Painel claro, como na referência: título à esquerda, texto à direita, cards lado a lado */
-.products__panel { background: #fff; border-radius: var(--radius-m); padding: clamp(1.5rem, 5vw, 3.5rem); }
+.products__panel {
+  background: #fff;
+  border-radius: var(--radius-m);
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+}
 
-.products__head { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); flex-wrap: wrap; }
-.products__title { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--brown-dark); max-width: 12ch; }
-.products__lead { flex: 1 1 260px; max-width: 40ch; padding-left: 1.25rem; border-left: 2px solid var(--brown); color: var(--muted); }
+.products__head {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.products__title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--brown-dark);
+  max-width: 12ch;
+}
+
+.products__lead {
+  flex: 1 1 260px;
+  max-width: 40ch;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--brown);
+  color: var(--muted);
+}
 
 .products__list {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 1.75rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
   margin-top: clamp(1.75rem, 4vw, 2.75rem);
 }
-.products__item { display: flex; }
-.products__skeleton { width: 100%; aspect-ratio: 1; border-radius: var(--radius-s); background: var(--beige); animation: products-pulse 1.4s ease-in-out infinite; }
-@keyframes products-pulse { 50% { opacity: .55; } }
-.products__empty { margin-top: 2rem; color: var(--muted); }
 
+.products__item {
+  display: flex;
+}
+
+.products__skeleton {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-s);
+  background: var(--beige);
+  animation: products-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes products-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.products__empty {
+  margin-top: 2rem;
+  color: var(--muted);
+}
 
 /* Celular: os cards continuam lado a lado, deslizando com o dedo */
 @media (max-width: 760px) {
   .products__list {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-    gap: 1rem; margin-inline: calc(-1 * clamp(1.5rem, 5vw, 3.5rem));
-    padding: .25rem clamp(1.5rem, 5vw, 3.5rem) 1rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    margin-inline: calc(-1 * clamp(1.5rem, 5vw, 3.5rem));
+    padding: 0.25rem clamp(1.5rem, 5vw, 3.5rem) 1rem;
     scrollbar-width: thin;
   }
-  .products__item { flex: 0 0 72%; scroll-snap-align: center; }
-  .products__lead { padding-left: 1rem; }
+
+  .products__item {
+    flex: 0 0 72%;
+    scroll-snap-align: center;
+  }
+
+  .products__lead {
+    padding-left: 1rem;
+  }
 }
