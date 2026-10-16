@@ -1,5 +1,32 @@
-.ad-login { grid-column: 1 / -1; display: grid; place-items: center; min-height: 100vh; padding: 1.25rem; }
-.ad-login__card { width: min(420px, 100%); display: grid; gap: 1rem; padding: clamp(1.4rem, 4vw, 2rem); background: var(--ad-surface); border: 1px solid var(--ad-border); border-radius: 16px; }
-.ad-login__card h1 { font-size: 1.5rem; line-height: 1.2; }
-.ad-login__sub { color: var(--ad-muted); }
-.ad-login__back { text-align: center; color: var(--ad-muted); font-size: .9rem; }
+.ad-login {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1.25rem;
+}
+
+.ad-login__card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.4rem, 4vw, 2rem);
+  background: var(--ad-surface);
+  border: 1px solid var(--ad-border);
+  border-radius: 16px;
+}
+
+.ad-login__card h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.ad-login__sub {
+  color: var(--ad-muted);
+}
+
+.ad-login__back {
+  text-align: center;
+  color: var(--ad-muted);
+  font-size: 0.9rem;
+}
