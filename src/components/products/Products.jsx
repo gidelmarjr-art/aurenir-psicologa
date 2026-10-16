@@ -1,8 +1,12 @@
-import { products } from '../../data/siteData'
+import usePublicProducts from '../../hooks/usePublicProducts'
+import { trackProductClick } from '../../services/products'
+import ProductCard from '../product-card/ProductCard'
 import Reveal from '../reveal/Reveal'
 import './Products.css'
 
 export default function Products() {
+  const { products, loading, error } = usePublicProducts()
+
   return (
     <section id="materiais" className="products">
       <div className="container">
@@ -14,28 +18,34 @@ export default function Products() {
             </p>
           </Reveal>
 
-          <Reveal as="ul" stagger delay={150} className="products__list">
-            {products.map((p) => (
-              <li key={p.id} className="products__item">
-                <a
-                  className="products__card"
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img className="products__img" src={p.image} alt={`Capa: ${p.title}`} loading="lazy" />
-                  <h3 className="products__name">{p.title}</h3>
-                  <span className="btn btn--primary products__btn">
-                    Comprar
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M7 17 17 7M8 7h9v9" />
-                    </svg>
-                    <span className="visually-hidden"> (abre em nova aba)</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </Reveal>
+          {loading && (
+            <ul className="products__list" aria-hidden="true">
+              {[1, 2, 3].map((n) => (
+                <li key={n} className="products__item"><div className="products__skeleton" /></li>
+              ))}
+            </ul>
+          )}
+
+          {!loading && (error || products.length === 0) && (
+            <p className="products__empty">
+              {error ? 'Não foi possível carregar os materiais agora. Tente novamente em instantes.' : 'Em breve, novos materiais por aqui.'}
+            </p>
+          )}
+
+          {!loading && !error && products.length > 0 && (
+            <Reveal as="ul" stagger delay={150} className="products__list">
+              {products.map((p) => (
+                <li key={p.id} className="products__item">
+                  <ProductCard
+                    title={p.title}
+                    imageUrl={p.imageUrl}
+                    buyUrl={p.buyUrl}
+                    onClick={() => trackProductClick(p.id)}
+                  />
+                </li>
+              ))}
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

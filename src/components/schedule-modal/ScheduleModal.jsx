@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import Modal from '../modal/Modal'
 import { site, topics } from '../../data/siteData'
+import useAvailableSlots from '../../hooks/useAvailableSlots'
+import { trackScheduleRequest } from '../../services/slots'
+import { formatDay, formatDayFromKey, formatTime, groupByDay } from '../../lib/dates'
 import './ScheduleModal.css'
 
 const periods = ['Manhã', 'Tarde', 'Noite']
@@ -14,6 +17,10 @@ export default function ScheduleModal({ initialTopic, onClose }) {
     message: '',
   })
   const [errors, setErrors] = useState({})
+  const [slotId, setSlotId] = useState('')
+  const { slots } = useAvailableSlots()
+  const days = groupByDay(slots)
+  const chosenSlot = slots.find((s) => s.id === slotId)
   const [sentMessage, setSentMessage] = useState(null)
   const [copied, setCopied] = useState(false)
 
@@ -21,12 +28,14 @@ export default function ScheduleModal({ initialTopic, onClose }) {
 
   const buildMessage = () => {
     const topicName = topics.find((t) => t.id === form.topic)?.name
+    const slotText = chosenSlot && `${formatDay(chosenSlot.startsAt)}, às ${formatTime(chosenSlot.startsAt)}`
     return [
       'Olá! Gostaria de agendar uma sessão online.',
       `Nome: ${form.name.trim()}`,
       `Contato: ${form.contact.trim()}`,
       topicName && `Tema: ${topicName}`,
-      form.period && `Melhor período: ${form.period}`,
+      slotText && `Horário de interesse: ${slotText}`,
+      !slotText && form.period && `Melhor período: ${form.period}`,
       form.message.trim() && `Mensagem: ${form.message.trim()}`,
     ]
       .filter(Boolean)
@@ -43,6 +52,7 @@ export default function ScheduleModal({ initialTopic, onClose }) {
 
     const message = buildMessage()
     setSentMessage(message)
+    trackScheduleRequest({ topic: form.topic, period: form.period, slotId })
 
     if (site.whatsapp) {
       window.open(`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`, '_blank', 'noopener')
@@ -90,11 +100,38 @@ export default function ScheduleModal({ initialTopic, onClose }) {
           Não precisa contar o que está sentindo agora. Isso fica para a primeira conversa.
         </p>
 
-        <div className="schedule__availability">
-          <strong>Dias de atendimento</strong>
-          <span>{site.availability.text}</span>
-          {site.availability.note && <small>{site.availability.note}</small>}
-        </div>
+        {days.length > 0 ? (
+          <fieldset className="schedule__slots">
+            <legend>Escolha um horário (opcional)</legend>
+            <div className="schedule__days">
+              {days.map(([key, list]) => (
+                <div key={key} className="schedule__day">
+                  <span className="schedule__day-label">{formatDayFromKey(key)}</span>
+                  <div className="schedule__times">
+                    {list.map((s) => (
+                      <button
+                        type="button"
+                        key={s.id}
+                        aria-pressed={slotId === s.id}
+                        className={`schedule__time ${slotId === s.id ? 'schedule__time--on' : ''}`}
+                        onClick={() => setSlotId(slotId === s.id ? '' : s.id)}
+                      >
+                        {formatTime(s.startsAt)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <small>Horário sujeito à confirmação pelo WhatsApp.</small>
+          </fieldset>
+        ) : (
+          <div className="schedule__availability">
+            <strong>Dias de atendimento</strong>
+            <span>{site.availability.text}</span>
+            {site.availability.note && <small>{site.availability.note}</small>}
+          </div>
+        )}
 
         <div className="schedule__field">
           <label htmlFor="ag-nome">Seu nome</label>

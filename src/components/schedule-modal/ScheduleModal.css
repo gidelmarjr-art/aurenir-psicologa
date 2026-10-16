@@ -38,3 +38,16 @@
 }
 .schedule__availability strong { color: var(--brown-dark); font-size: .95rem; }
 .schedule__availability small { color: var(--muted); font-size: .88rem; }
+
+/* Escolha de horário (vem do cadastro de datas do painel admin) */
+.schedule__slots { margin: 0; padding: 0; border: 0; min-width: 0; display: grid; gap: .5rem; }
+.schedule__slots legend { padding: 0; margin-bottom: .5rem; font-weight: 600; font-size: .95rem; }
+.schedule__slots small { color: var(--muted); font-size: .88rem; }
+.schedule__days { display: grid; gap: .9rem; max-height: 250px; overflow-y: auto; padding: .9rem 1rem; background: var(--sky-soft); border-left: 4px solid var(--brown); border-radius: var(--radius-s); }
+.schedule__day { display: grid; gap: .4rem; }
+.schedule__day-label { font-size: .92rem; font-weight: 600; color: var(--brown-dark); display: inline-block; }
+.schedule__day-label::first-letter { text-transform: uppercase; }
+.schedule__times { display: flex; flex-wrap: wrap; gap: .4rem; }
+.schedule__time { min-height: 40px; padding: .3rem .9rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-pill); font-weight: 500; }
+.schedule__time:hover { border-color: var(--brown); }
+.schedule__time--on, .schedule__time--on:hover { background: var(--brown); border-color: var(--brown); color: #fff; }

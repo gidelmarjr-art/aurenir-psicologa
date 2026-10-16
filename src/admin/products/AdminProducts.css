@@ -1,0 +1,35 @@
+.ad-prod { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 1rem; align-items: start; margin-top: 1rem; }
+.ad-prod__form-card { display: grid; gap: 1rem; }
+.ad-prod__side { display: grid; gap: 1rem; min-width: 0; }
+.ad-prod__form { display: grid; gap: .9rem; }
+.ad-prod__check { display: flex; align-items: center; gap: .6rem; font-size: .95rem; min-height: 40px; }
+.ad-prod__check input { width: 18px; height: 18px; accent-color: var(--ad-accent); }
+.ad-prod__actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+/* prévia: reproduz o painel branco da seção "Materiais indicados" do site */
+.ad-prod__preview-title { font-size: .9rem; color: var(--ad-muted); font-weight: 600; margin-bottom: .5rem; }
+.ad-prod__stage { padding: clamp(1rem, 3vw, 1.75rem); background: #ece6e6; border-radius: 12px; }
+.ad-prod__panel { background: #fff; border-radius: 14px; padding: 1.1rem; color: #3b2a1b; }
+.ad-prod__panel-title { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.1; color: #5a3d22; margin-bottom: .9rem; }
+.ad-prod__card { width: min(100%, 230px); }
+
+.ad-prod__empty { color: var(--ad-muted); padding: 1rem 0; }
+.ad-prod__list { display: grid; margin-top: .5rem; }
+.ad-prod__row { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: .9rem; align-items: center; padding: .85rem 0; border-top: 1px solid var(--ad-border); }
+.ad-prod__row:first-child { border-top: 0; }
+.ad-prod__row--off .ad-prod__thumb, .ad-prod__row--off .ad-prod__name { opacity: .5; }
+.ad-prod__thumb { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; background: var(--ad-surface-2); }
+.ad-prod__info { display: grid; gap: .2rem; min-width: 0; justify-items: start; }
+.ad-prod__name { line-height: 1.3; }
+.ad-prod__url { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .82rem; color: var(--ad-muted); }
+.ad-prod__toggle { cursor: pointer; font: inherit; font-size: .75rem; margin-top: .15rem; }
+.ad-prod__tools { display: flex; gap: .35rem; flex-wrap: wrap; justify-content: flex-end; }
+
+@media (max-width: 1000px) {
+  .ad-prod { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .ad-prod__row { grid-template-columns: 56px minmax(0, 1fr); }
+  .ad-prod__thumb { width: 56px; height: 56px; }
+  .ad-prod__tools { grid-column: 1 / -1; justify-content: flex-start; }
+}
