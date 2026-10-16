@@ -1,5 +1,25 @@
-.footer { background: var(--brown-dark); color: #f1ebe6; padding: 2.5rem 0; font-size: .95rem; }
-.footer__inner { display: grid; gap: .75rem; }
-.footer__urgent { color: #fff; }
-.footer__note { color: var(--sky); max-width: 70ch; }
-.footer__copy { color: var(--sky); margin-top: .5rem; }
+.footer {
+  background: var(--brown-dark);
+  color: #f1ebe6;
+  padding: 2.5rem 0;
+  font-size: 0.95rem;
+}
+
+.footer__inner {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.footer__urgent {
+  color: #fff;
+}
+
+.footer__note {
+  color: var(--sky);
+  max-width: 70ch;
+}
+
+.footer__copy {
+  color: var(--sky);
+  margin-top: 0.5rem;
+}
