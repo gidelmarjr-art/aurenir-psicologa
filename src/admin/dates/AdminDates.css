@@ -1,28 +1,146 @@
-.ad-dates { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 1rem; align-items: start; margin-top: 1rem; }
-.ad-dates__new { display: grid; gap: 1rem; position: sticky; top: 1rem; }
-.ad-dates__presets { display: flex; gap: .5rem; flex-wrap: wrap; }
-.ad-dates__preset { min-height: 40px; padding: .35rem .8rem; font-size: .88rem; }
-.ad-dates__typed { display: flex; gap: .5rem; flex-wrap: wrap; }
-.ad-dates__typed .ad-input { width: 130px; }
-.ad-dates__chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-.ad-dates__chip { min-height: 36px; padding: .25rem .75rem; background: var(--ad-surface-2); border: 1px solid var(--ad-border); border-radius: 999px; color: var(--ad-text); font: inherit; font-size: .9rem; }
-.ad-dates__chip:hover { border-color: var(--ad-danger); }
+.ad-dates {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
 
-.ad-dates__empty { color: var(--ad-muted); padding: 1rem 0; }
-.ad-dates__days { display: grid; gap: 1.1rem; margin-top: 1rem; }
-.ad-dates__day { display: grid; gap: .5rem; padding-top: 1rem; border-top: 1px solid var(--ad-border); }
-.ad-dates__day:first-child { border-top: 0; padding-top: 0; }
-.ad-dates__day-head { display: flex; justify-content: space-between; align-items: center; gap: .75rem; flex-wrap: wrap; }
-.ad-dates__day-head strong { display: inline-block; }
-.ad-dates__day-head strong::first-letter { text-transform: uppercase; }
-.ad-dates__clear { min-height: 36px; padding: .25rem .75rem; font-size: .82rem; }
-.ad-dates__slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .5rem; }
-.ad-dates__slot { display: flex; align-items: center; gap: .6rem; padding: .45rem .55rem .45rem .8rem; background: var(--ad-surface-2); border: 1px solid var(--ad-border); border-radius: 10px; }
-.ad-dates__slot--booked strong { text-decoration: line-through; color: var(--ad-muted); }
-.ad-dates__status { cursor: pointer; font: inherit; font-size: .75rem; margin-right: auto; min-height: 30px; }
-.ad-dates__del { width: 34px; height: 34px; }
+.ad-dates__new {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.ad-dates__presets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ad-dates__preset {
+  min-height: 40px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.88rem;
+}
+
+.ad-dates__typed {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ad-dates__typed .ad-input {
+  width: 130px;
+}
+
+.ad-dates__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ad-dates__chip {
+  min-height: 36px;
+  padding: 0.25rem 0.75rem;
+  background: var(--ad-surface-2);
+  border: 1px solid var(--ad-border);
+  border-radius: 999px;
+  color: var(--ad-text);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.ad-dates__chip:hover {
+  border-color: var(--ad-danger);
+}
+
+.ad-dates__empty {
+  color: var(--ad-muted);
+  padding: 1rem 0;
+}
+
+.ad-dates__days {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.ad-dates__day {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ad-border);
+}
+
+.ad-dates__day:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ad-dates__day-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ad-dates__day-head strong {
+  display: inline-block;
+}
+
+.ad-dates__day-head strong::first-letter {
+  text-transform: uppercase;
+}
+
+.ad-dates__clear {
+  min-height: 36px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.ad-dates__slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.5rem;
+}
+
+.ad-dates__slot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem 0.45rem 0.8rem;
+  background: var(--ad-surface-2);
+  border: 1px solid var(--ad-border);
+  border-radius: 10px;
+}
+
+.ad-dates__slot--booked strong {
+  text-decoration: line-through;
+  color: var(--ad-muted);
+}
+
+.ad-dates__status {
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  margin-right: auto;
+  min-height: 30px;
+}
+
+.ad-dates__del {
+  width: 34px;
+  height: 34px;
+}
 
 @media (max-width: 1000px) {
-  .ad-dates { grid-template-columns: 1fr; }
-  .ad-dates__new { position: static; }
+  .ad-dates {
+    grid-template-columns: 1fr;
+  }
+  
+  .ad-dates__new {
+    position: static;
+  }
 }
