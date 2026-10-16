@@ -3,6 +3,22 @@ import { supabase } from '../../lib/supabase'
 import { site } from '../../data/siteData'
 import './AdminLogin.css'
 
+// Traduz o erro do Supabase para algo que dá para resolver
+function explain(err) {
+  const text = `${err.code || ''} ${err.message || ''}`.toLowerCase()
+  if (text.includes('email_not_confirmed') || text.includes('email not confirmed'))
+    return 'Este e-mail ainda não foi confirmado. No Supabase, rode no SQL Editor: update auth.users set email_confirmed_at = now() where email = \'SEU-EMAIL\';'
+  if (text.includes('invalid_credentials') || text.includes('invalid login credentials'))
+    return 'E-mail ou senha incorretos. Confira se o usuário foi criado no MESMO projeto Supabase das chaves do .env (Authentication > Users).'
+  if (text.includes('invalid api key') || text.includes('apikey'))
+    return 'Chave do Supabase inválida. Confira VITE_SUPABASE_ANON_KEY no .env (use a chave "anon public") e reinicie o projeto.'
+  if (text.includes('failed to fetch') || text.includes('network') || text.includes('fetch'))
+    return 'Não foi possível conectar ao Supabase. Confira VITE_SUPABASE_URL no .env, reinicie o projeto e veja se o projeto Supabase não está pausado.'
+  if (text.includes('provider') && text.includes('disabled'))
+    return 'O login por e-mail está desligado. Ative em Authentication > Providers > Email.'
+  return `Não foi possível entrar: ${err.message || 'erro desconhecido'}`
+}
+
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -15,7 +31,7 @@ export default function AdminLogin() {
     setError('')
     const { error: err } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
     if (err) {
-      setError(err.message === 'Invalid login credentials' ? 'E-mail ou senha incorretos.' : 'Não foi possível entrar. Tente de novo em instantes.')
+      setError(explain(err))
       setBusy(false)
     }
     // Em caso de sucesso, o painel detecta o login sozinho.

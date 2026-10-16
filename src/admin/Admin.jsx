@@ -53,9 +53,9 @@ export default function Admin() {
       if (!session) { if (alive) setAuth({ status: 'out' }); return }
       const { data, error } = await supabase.rpc('is_admin')
       if (!alive) return
-      setAuth(error || data !== true
-        ? { status: 'forbidden', email: session.user.email }
-        : { status: 'in', email: session.user.email })
+      if (error) setAuth({ status: 'forbidden', email: session.user.email, userId: session.user.id, setupError: error.message })
+      else if (data !== true) setAuth({ status: 'forbidden', email: session.user.email, userId: session.user.id })
+      else setAuth({ status: 'in', email: session.user.email })
     }
 
     supabase.auth.getSession().then(({ data }) => check(data.session))
@@ -92,8 +92,16 @@ export default function Admin() {
   if (auth.status === 'forbidden') {
     return shell(
       <div className="ad-center ad-notice">
-        <h1>Sem permissão</h1>
-        <p>O usuário <strong>{auth.email}</strong> entrou, mas não está autorizado a usar o painel.</p>
+        <h1>{auth.setupError ? 'Banco ainda não preparado' : 'Falta autorizar este usuário'}</h1>
+        {auth.setupError ? (
+          <p>O login funcionou, mas o banco não respondeu à checagem de administrador ({auth.setupError}). Rode o arquivo <code>supabase/schema.sql</code> no SQL Editor do Supabase e entre de novo.</p>
+        ) : (
+          <>
+            <p>O login de <strong>{auth.email}</strong> funcionou, mas este usuário ainda não está na lista de administradores. Rode no SQL Editor do Supabase:</p>
+            <code className="ad-notice__sql">insert into public.admins (user_id) values ('{auth.userId}');</code>
+            <p>Depois, clique em Sair e entre de novo.</p>
+          </>
+        )}
         <button className="ad-btn ad-btn--primary" onClick={signOut}>Sair</button>
       </div>,
     )
