@@ -56,5 +56,6 @@ src/
 ├── styles/global.css        cores e base do site
 ├── admin/                   painel: Admin, login, dashboard, products, dates, calendar-picker, line-chart, stat-card, icons
 └── components/              site: header, hero, about, topics, sessions, products, product-card,
-                             community, footer, modal, schedule-modal, reveal
+                             community, footer, modal, schedule-modal, reveal,
+                             materials-page (página /materiais com todos os produtos)
 ```

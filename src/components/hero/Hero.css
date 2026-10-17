@@ -1,226 +1,62 @@
-.hero {
-  padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(3rem, 7vw, 6rem);
-}
+.hero { padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(3rem, 7vw, 6rem); }
 
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
-}
+.hero__inner { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(2rem, 6vw, 5rem); }
 
 /* Entrada ao carregar a página: cada parte sobe em sequência */
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes bloom { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: none; } }
+.hero__title, .hero__lead, .hero__actions, .hero__facts { animation: rise .9s var(--ease-out, ease-out) both; }
+.hero__title { animation-delay: .1s; }
+.hero__lead { animation-delay: .25s; }
+.hero__actions { animation-delay: .4s; }
+.hero__facts { animation-delay: .55s; }
+.hero__visual { animation: bloom 1.2s var(--ease-out, ease-out) .2s both; }
 
-@keyframes bloom {
-  from {
-    opacity: 0;
-    transform: scale(0.88);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+.hero__title { font-size: clamp(2.4rem, 6vw, 4.4rem); color: var(--brown-dark); max-width: 14ch; }
+.hero__lead { margin-top: 1.5rem; max-width: 46ch; font-size: 1.15rem; color: var(--muted); }
 
-.hero__title,
-.hero__lead,
-.hero__actions,
-.hero__facts {
-  animation: rise 0.9s var(--ease-out, ease-out) both;
-}
+.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 
-.hero__title {
-  animation-delay: 0.1s;
-}
-
-.hero__lead {
-  animation-delay: 0.25s;
-}
-
-.hero__actions {
-  animation-delay: 0.4s;
-}
-
-.hero__facts {
-  animation-delay: 0.55s;
-}
-
-.hero__visual {
-  animation: bloom 1.2s var(--ease-out, ease-out) 0.2s both;
-}
-
-.hero__title {
-  font-size: clamp(2.4rem, 6vw, 4.4rem);
-  color: var(--brown-dark);
-  max-width: 14ch;
-}
-
-.hero__lead {
-  margin-top: 1.5rem;
-  max-width: 46ch;
-  font-size: 1.15rem;
-  color: var(--muted);
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.hero__facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  margin-top: 2.25rem;
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-.hero__facts li {
-  position: relative;
-  padding-left: 1.1rem;
-}
-
+.hero__facts { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 2.25rem; font-size: .95rem; color: var(--muted); }
+.hero__facts li { position: relative; padding-left: 1.1rem; }
 .hero__facts li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--sky);
+  content: ''; position: absolute; left: 0; top: .55em;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--sky);
   border: 1px solid var(--brown);
 }
 
-.hero__visual {
-  text-align: center;
-}
-
-.hero__caption {
-  margin-top: 1.25rem;
-  font-size: 0.95rem;
-  color: var(--muted);
-}
+.hero__visual { text-align: center; }
+.hero__caption { margin-top: 1.25rem; font-size: .95rem; color: var(--muted); }
 
 /* Círculo de respiração: ciclo de 8s (4s inspirando, 4s expirando) */
-.breath {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: min(100%, 440px);
-  aspect-ratio: 1;
-  margin-inline: auto;
-}
-
-.breath__ring {
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-}
-
+.breath { position: relative; display: grid; place-items: center; width: min(100%, 440px); aspect-ratio: 1; margin-inline: auto; }
+.breath__ring { position: absolute; inset: 0; border: 1px solid var(--line); border-radius: 50%; }
 .breath__orb {
-  width: 76%;
-  aspect-ratio: 1;
-  border-radius: 50%;
+  width: 76%; aspect-ratio: 1; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #fff 0%, var(--sky-soft) 40%, var(--sky) 100%);
   animation: breathe 8s ease-in-out infinite;
 }
-
 .breath__label {
-  position: absolute;
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  color: var(--brown-dark);
+  position: absolute; font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--brown-dark);
   opacity: 0;
 }
+.breath__label--in { animation: label-in 8s ease-in-out infinite; }
+.breath__label--out { animation: label-out 8s ease-in-out infinite; }
+.breath__label--static { display: none; }
 
-.breath__label--in {
-  animation: label-in 8s ease-in-out infinite;
-}
-
-.breath__label--out {
-  animation: label-out 8s ease-in-out infinite;
-}
-
-.breath__label--static {
-  display: none;
-}
-
-@keyframes breathe {
-  0%, 100% {
-    transform: scale(0.62);
-  }
-  50% {
-    transform: scale(1);
-  }
-}
-
-@keyframes label-in {
-  0% {
-    opacity: 0;
-  }
-  10%, 40% {
-    opacity: 1;
-  }
-  50%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes label-out {
-  0%, 50% {
-    opacity: 0;
-  }
-  60%, 90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+@keyframes breathe { 0%, 100% { transform: scale(.62); } 50% { transform: scale(1); } }
+@keyframes label-in { 0% { opacity: 0; } 10%, 40% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes label-out { 0%, 50% { opacity: 0; } 60%, 90% { opacity: 1; } 100% { opacity: 0; } }
 
 /* Para quem prefere menos movimento: círculo parado e texto fixo */
 @media (prefers-reduced-motion: reduce) {
-  .breath__orb {
-    animation: none;
-    transform: scale(0.85);
-  }
-  
-  .breath__label--in,
-  .breath__label--out {
-    display: none;
-  }
-  
-  .breath__label--static {
-    display: block;
-    opacity: 1;
-  }
+  .breath__orb { animation: none; transform: scale(.85); }
+  .breath__label--in, .breath__label--out { display: none; }
+  .breath__label--static { display: block; opacity: 1; }
 }
 
 @media (max-width: 860px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-  }
-  
-  .breath {
-    width: min(72%, 300px);
-  }
-  
-  .hero__caption {
-    display: none;
-  }
+  .hero__inner { grid-template-columns: 1fr; }
+  .breath { width: min(72%, 300px); }
+  .hero__caption { display: none; }
 }

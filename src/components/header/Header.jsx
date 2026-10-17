@@ -2,15 +2,18 @@ import { useEffect, useState } from 'react'
 import { site } from '../../data/siteData'
 import './Header.css'
 
-const links = [
-  { href: '#sobre-mim', label: 'Sobre Mim' },
-  { href: '#temas', label: 'Temas' },
-  { href: '#atendimento', label: 'Atendimento' },
-  { href: '#materiais', label: 'Materiais' },
-  { href: '#comunidade', label: 'Comunidade' },
+// Na home os links rolam a página (#secao). Em outras páginas (ex.: /materiais) voltam para a home ("/#secao").
+const buildLinks = (prefix) => [
+  { href: `${prefix}#sobre-mim`, label: 'Sobre Mim' },
+  { href: `${prefix}#temas`, label: 'Temas' },
+  { href: `${prefix}#atendimento`, label: 'Atendimento' },
+  { href: '/materiais', label: 'Materiais', page: true },
+  { href: `${prefix}#comunidade`, label: 'Comunidade' },
 ]
 
-export default function Header({ onSchedule }) {
+export default function Header({ onSchedule, onHome = true }) {
+  const prefix = onHome ? '' : '/'
+  const links = buildLinks(prefix)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -26,7 +29,7 @@ export default function Header({ onSchedule }) {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__inner">
-        <a href="#inicio" className="header__brand" onClick={closeMenu}>
+        <a href={`${prefix}#inicio`} className="header__brand" onClick={closeMenu}>
           {site.name}
         </a>
 
@@ -48,7 +51,12 @@ export default function Header({ onSchedule }) {
           <ul className="header__list">
             {links.map((l) => (
               <li key={l.href}>
-                <a className="header__link" href={l.href} onClick={closeMenu}>
+                <a
+                  className="header__link"
+                  href={l.href}
+                  onClick={closeMenu}
+                  aria-current={l.page && !onHome ? 'page' : undefined}
+                >
                   {l.label}
                 </a>
               </li>

@@ -1,17 +1,3 @@
-.ad-chart {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-}
-
-.ad-chart__grid {
-  stroke: var(--ad-border);
-  stroke-dasharray: 2 5;
-}
-
-.ad-chart__tick {
-  fill: var(--ad-muted);
-  font-size: 12px;
-  font-family: inherit;
-}
+.ad-chart { width: 100%; height: auto; display: block; overflow: visible; }
+.ad-chart__grid { stroke: var(--ad-border); stroke-dasharray: 2 5; }
+.ad-chart__tick { fill: var(--ad-muted); font-size: 12px; font-family: inherit; }
