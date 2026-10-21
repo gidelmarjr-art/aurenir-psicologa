@@ -1,61 +1,51 @@
-# Site da psicóloga Aurenir Terto
+# 🧠 Aurenir Terto — Psicoterapia Online & Materiais
 
-React + Vite + Supabase. Cada componente fica na sua pasta, com o `.jsx` e o `.css` juntos.
+Plataforma web completa desenvolvida para a psicóloga **Aurenir Terto**, combinando uma experiência institucional acolhedora e segura com um sistema de agendamento e painel administrativo para gestão de horários e conteúdos.
 
-```bash
-npm install
-npm run dev      # desenvolvimento
-npm run build    # gera a pasta dist/ para publicar
-```
+---
 
-Sem configurar o banco, o site funciona normalmente com os textos de `src/data/siteData.js`.
-O painel `/admin` e o cadastro de datas/produtos só funcionam depois dos passos abaixo.
+## 📸 Demonstração do Projeto
 
-## 1. Configurar o banco (Supabase) — uma vez só
+<div align="center">
+  <img src="public/aurenirterto.png" alt="Aurenir Terto Psicoterapia Preview" width="100%" />
+</div>
 
-1. Crie um projeto em supabase.com.
-2. **SQL Editor** → cole todo o arquivo `supabase/schema.sql` → **Run**.
-   Cria as tabelas, as regras de segurança, a pasta de capas e já cadastra os 3 materiais atuais.
-3. **Authentication → Providers → Email**: deixe o login por e-mail ativo e **desligue "Allow new users to sign up"**
-   (ninguém de fora consegue criar conta).
-4. **Authentication → Users → Add user**: crie o usuário da Aurenir (e-mail + senha forte).
-5. **SQL Editor**: autorize esse usuário como administrador (troque o e-mail):
-   ```sql
-   insert into public.admins (user_id)
-   select id from auth.users where email = 'EMAIL-DA-AURENIR@exemplo.com';
-   ```
-6. **Project Settings → API**: copie a *Project URL* e a chave *anon public*.
-   Crie o arquivo `.env` (modelo em `.env.example`) e, na Vercel, cadastre as mesmas duas variáveis
-   (Settings → Environment Variables) e faça um novo deploy.
+---
 
-## 2. Usar o painel
+## 🚀 Tecnologias Utilizadas
 
-Acesse `seusite.com/admin` e entre com o e-mail e senha.
+Este projeto foi construído utilizando tecnologias modernas e robustas do ecossistema Full-Stack:
 
-- **Geral**: números do site (produtos, cliques em Comprar, horários livres/reservados, pedidos de sessão) e gráfico de 14 dias.
-- **Produtos**: cadastre nome, link de compra e capa (com prévia igual à do site), mostre/esconda, mude a ordem, edite ou apague.
-- **Datas**: marque vários dias no calendário, escolha os horários (ou use Manhã/Tarde/Noite) e adicione.
-  Quando confirmar uma paciente, marque o horário como **Reservado** para ele sair do site.
+- **Front-End:** React, Vite, JavaScript
+- **Estilização:** CSS Modular (com variáveis customizadas, design acolhedor e animações interativas)
+- **Back-End & Banco de Dados:** Supabase (Database PostgreSQL, Auth & Storage)
+- **Hospedagem & Deploy:** Vercel
 
-## Privacidade (LGPD)
+---
 
-O banco **não guarda nome nem contato** de pacientes. O formulário só abre o WhatsApp com a mensagem pronta;
-no banco entra apenas uma estatística anônima (tema, período e horário escolhido).
+## ⚙️ Principais Funcionalidades
 
-## Estrutura
+- **Atendimento Humanizado & Seguro:** Apresentação da metodologia, temas de atuação, comunidade e direcionamento para sessões online com foco na privacidade (LGPD).
+- **Agendamento Inteligente:** Interface para pacientes solicitarem horários com redirecionamento para o WhatsApp, registrando apenas estatísticas anônimas no banco.
+- **Painel Administrativo (`/admin`):**
+  - **Dashboard Analítico:** Métricas de acesso, cliques, sessões solicitadas e gráficos de desempenho dos últimos 14 dias.
+  - **Gestão de Produtos/Materiais:** Cadastro, alteração de ordem, upload de capas e gerenciamento de visibilidade.
+  - **Gestão de Agendamentos:** Gerenciamento dinâmico de datas e horários disponíveis/reservados no calendário.
+- **Catálogo de Materiais (`/materiais`):** Página dedicada para disponibilização e venda de conteúdos digitais.
 
-```
-supabase/schema.sql          tabelas, regras de segurança, dados iniciais
-vercel.json                  faz /admin funcionar na Vercel
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+supabase/schema.sql          → Tabelas, políticas de segurança (RLS) e dados iniciais
+vercel.json                  → Regras de roteamento para o painel /admin na Vercel
 src/
-├── App.jsx  main.jsx
-├── data/siteData.js         textos do site (nome, CRP, WhatsApp, temas...)
-├── lib/                     supabase.js (conexão) e dates.js (datas no fuso de Brasília)
-├── services/                products.js, slots.js, dashboard.js (acesso ao banco)
-├── hooks/                   usePublicProducts.js, useAvailableSlots.js
-├── styles/global.css        cores e base do site
-├── admin/                   painel: Admin, login, dashboard, products, dates, calendar-picker, line-chart, stat-card, icons
-└── components/              site: header, hero, about, topics, sessions, products, product-card,
-                             community, footer, modal, schedule-modal, reveal,
-                             materials-page (página /materiais com todos os produtos)
+├── data/siteData.js         → Informações e textos estáticos do site (CRP, contato, etc.)
+├── lib/                     → Configuração do Supabase e utilitários de fuso horário
+├── services/                → Camada de integração com o Supabase (produtos, slots, dashboard)
+├── hooks/                   → Hooks customizados para consumo de dados públicos
+├── styles/global.css        → Tokens de design, cores e reset global
+├── admin/                   → Componentes e páginas do Painel Administrativo
+└── components/              → Componentes da aplicação pública (Hero, Sobre, Modal, etc.)
 ```
