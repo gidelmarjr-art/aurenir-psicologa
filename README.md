@@ -7,7 +7,7 @@ Plataforma web completa desenvolvida para a psicóloga **Aurenir Terto**, combin
 ## 📸 Demonstração do Projeto
 
 <div align="center">
-  <img src="public/aurenirterto.png" alt="Aurenir Terto Psicoterapia Preview" width="100%" />
+  <img src="public/aurenir.png" alt="Aurenir Terto Psicoterapia Preview" width="100%" />
 </div>
 
 ---
